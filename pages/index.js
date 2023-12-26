@@ -55,21 +55,21 @@ export default function HomePage() {
 
   const getBalance = async() => {
     if (atm) {
-      setBalance((await atm.getBalance()).toNumber());
+      setBalance((await atm.getResult()).toString());
     }
   }
 
-  const deposit = async() => {
+  const valid = async() => {
     if (atm) {
-      let tx = await atm.deposit(1);
+      let tx = await atm.valid_array([5,6]);
       await tx.wait()
       getBalance();
     }
   }
 
-  const withdraw = async() => {
+  const unique = async() => {
     if (atm) {
-      let tx = await atm.withdraw(1);
+      let tx = await atm.unique_elements([6,6]);
       await tx.wait()
       getBalance();
     }
@@ -93,9 +93,9 @@ export default function HomePage() {
     return (
       <div>
         <p>Your Account: {account}</p>
-        <p>Your Balance: {balance}</p>
-        <button onClick={deposit}>Deposit 1 ETH</button>
-        <button onClick={withdraw}>Withdraw 1 ETH</button>
+        <p>Result: {balance}</p>
+        <button onClick={valid}>Check if array valid</button>
+        <button onClick={unique}>Check if array unique</button>
       </div>
     )
   }
@@ -104,11 +104,13 @@ export default function HomePage() {
 
   return (
     <main className="container">
-      <header><h1>Welcome to the Metacrafters ATM!</h1></header>
+      <header><h1>Valid or Unique</h1></header>
       {initUser()}
       <style jsx>{`
         .container {
-          text-align: center
+          text-align: center;
+          border:8px solid blue;
+          padding:10px;
         }
       `}
       </style>
