@@ -33,10 +33,10 @@ After this, the project will be running on your localhost.
 Typically at http://localhost:3000/
 
 ### Connecting to Metamask
-Network Name- Hardhat network
-RPC URL-(will be provided when you run - npx hardhat node)
-Chain id-31337
-Symbol-ETH
+* Network Name- Hardhat network
+* RPC URL-(will be provided when you run - npx hardhat node)
+* Chain id-31337
+* Symbol-ETH
 
 ## Authors
 
